@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function () {           return view('frontend.layout'); });
 Route::group(['middleware' => ['get.menu']], function () {
-    Route::get('/', function () {           return view('dashboard.homepage'); });
-
+    // Route::get('/', function () {           return view('dashboard.homepage'); });
+    
     Route::group(['middleware' => ['role:user']], function () {
         Route::get('/colors', function () {     return view('dashboard.colors'); });
         Route::get('/typography', function () { return view('dashboard.typography'); });
